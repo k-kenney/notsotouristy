@@ -3,7 +3,7 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
-import { VITE_FIREBASE_KEY } from "@env";
+import { VITE_FIREBASE_API_KEY } from "@env";
 
 const firebaseConfig = {
   apiKey: {VITE_FIREBASE_API_KEY},
