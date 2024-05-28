@@ -3,9 +3,10 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
+import { VITE_FIREBASE_KEY } from "@env";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAT5sebiEQP3-AU1NsIK77yEuhf09V0POg",
+  apiKey: {VITE_FIREBASE_API_KEY},
   authDomain: "notsotouristy-775b9.firebaseapp.com",
   projectId: "notsotouristy-775b9",
   storageBucket: "notsotouristy-775b9.appspot.com",
