@@ -6,7 +6,7 @@ import { MdFacebook } from "react-icons/md";
 import { AiOutlineMail } from "react-icons/ai";
 
 const Auth = () => {
-  const [createUser, setCreateUser] = useState(second);
+  const [createUser, setCreateUser] = useState(false);
   return (
     <Modal>
       <section className="z-50 fixed top-0 bottom-0 left-0 md:left-[10rem] overflow-auto right-0 md:right-[10rem] bg-white shadows">
@@ -22,7 +22,7 @@ const Auth = () => {
             <div className="flex flex-col gap-2 w-fit mx-auto">
               <Button
                 icon={<FcGoogle className="text-xl" />}
-                text={"Sign In With Google"}
+                text={`${createUser ? "Sign Up" : "Sign In"} With Google`}
               />
               <Button
                 icon={<MdFacebook className="text-xl text-blue-500" />}
@@ -52,7 +52,7 @@ export default Auth;
 
 const Button = ({ icon, text, click }) => {
   return (
-    <button className="flex items-center gap-10 sm:w-[20rem] border border-black px-3 py-2 rounded-full">
+    <button className="flex items-center gap-14 sm:w-[20rem] border border-black px-3 py-2 rounded-full">
       {icon} {text}
     </button>
   );
