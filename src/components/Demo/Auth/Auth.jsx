@@ -10,11 +10,14 @@ import SignUp from "./SignUp";
 const Auth = () => {
   const [createUser, setCreateUser] = useState(false);
   const [signReq, setSignReq] = useState("");
+  const [modal, setModal] = useState(true);
+
+  const hidden = modal ? "visible opacity-100" : "invisible opacity-0"
   return (
-    <Modal>
-      <section className="z-50 fixed top-0 bottom-0 left-0 md:left-[10rem] overflow-auto right-0 md:right-[10rem] bg-white shadows">
+    <Modal modal={modal} setModal={setModal} hidden={hidden} >
+      <section className={`z-50 fixed top-0 bottom-0 left-0 md:left-[10rem] overflow-auto right-0 md:right-[10rem] bg-white shadows transition-all duration-500 ${hidden}`}>
         auth
-        <button className="absolute top-8 right-8 text-2xl hover:opacity-50">
+        <button onClick={() => setModal(false)} className="absolute top-8 right-8 text-2xl hover:opacity-50">
           <LiaTimesSolid />
         </button>
         <div className="flex flex-col justify-center  items-center gap-[3rem]">
