@@ -3,11 +3,13 @@ import Input from "../../../utils/Input";
 import React, { useState } from "react";
 import { MdKeyboardArrowLeft } from "react-icons/md";
 import { toast } from "react-toastify";
-import { auth } from "../../../firebase/firebase";
+import { auth, db } from "../../../firebase/firebase";
 import { useNavigate } from "react-router-dom";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 
 const SignUp = ({ setSignReq, setModal }) => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     username: "",
     email: "",
@@ -23,13 +25,14 @@ const SignUp = ({ setSignReq, setModal }) => {
       toast.error("Your passwords don't match");
       return;
     } else {
+      setLoading(true);
       const { user } = await createUserWithEmailAndPassword(
         auth,
         form.email,
         form.password
       );
 
-      const ref = doc(db, "users", newUser.uid);
+      const ref = doc(db, "users", user.uid);
       const userDoc = await getDoc(ref);
 
       if (!userDoc.exists()) {
@@ -43,8 +46,9 @@ const SignUp = ({ setSignReq, setModal }) => {
         navigate("/");
         toast.success("User has been created");
         setModal(false);
+        setLoading(false);
+      }
     }
-  }
   };
   return (
     <div className="size mt-[6rem] text-center">
@@ -63,7 +67,7 @@ const SignUp = ({ setSignReq, setModal }) => {
           type="password"
           title="rePassword"
         />
-        <button className="px-4 py-1 text-sm rounded-full bg-green-700 hover:bg-green-800 text-white w-fit mx-auto">
+        <button className={`px-4 py-1 text-sm rounded-full bg-green-700 hover:bg-green-800 text-white w-fit mx-auto ${loading ? "Opacity-50 pointer-events-none" : ""}`}>
           Sign Up
         </button>
       </form>
