@@ -6,10 +6,40 @@ import { MdFacebook } from "react-icons/md";
 import { AiOutlineMail } from "react-icons/ai";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
+import { signInWithPopup } from "firebase/auth";
+import { auth, provider } from "../../../firebase/firebase";
+import { doc, getDoc, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Auth = ({ modal, setModal }) => {
   const [createUser, setCreateUser] = useState(false);
   const [signReq, setSignReq] = useState("");
+  const navigate = useNavigate();
+
+  const googleAuth = async () => {
+    try {
+      const createUser = await signInWithPopup(auth, provider);
+      const newUser = createUser.user;
+
+      const ref = doc(db, "users", newUser.uid);
+      const userDoc = await getDoc(ref);
+
+      if(!userDoc.exists()) {
+        await setDoc(ref,{
+          userId: newUser.uid,
+          username: newUser.displayName,
+          email: newUser.email,
+          userImg: newUser.photoURL,
+          bio: "",
+        })
+        navigate("/");
+        toast.success("User has been signed in")
+      }
+    } catch (error) {
+
+    }
+  }
  
 
   const hidden = modal ? "visible opacity-100" : "invisible opacity-0"
