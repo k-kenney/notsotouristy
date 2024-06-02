@@ -7,6 +7,7 @@ import { getStorage } from "firebase/storage";
 
 
 const firebaseConfig = {
+  // apiKey: "AIzaSyAT5sebiEQP3-AU1NsIK77yEuhf09V0POg",
   apiKey: import.meta.env.VITE_FIREBASE_API,
   authDomain: "notsotouristy-775b9.firebaseapp.com",
   projectId: "notsotouristy-775b9",
