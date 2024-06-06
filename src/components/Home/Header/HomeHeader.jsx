@@ -11,6 +11,7 @@ import UserModal from "./UserModal";
 
 const HomeHeader = () => {
   const [modal, setModal] = useState(false);
+  const [searchModal, setSearchModal] = useState(false);
   return (
     <header className="border-b border-gray-200">
       <div className="size h-[60px] flex items-center justify-between">
@@ -22,9 +23,18 @@ const HomeHeader = () => {
               <BsMedium />
             </span>
           </Link>
-          <Search />
+          <Search
+            modal={searchModal}
+            setModal={setSearchModal}
+          />
         </div>
         <div className="flex items-center gap-3 sm:gap-7">
+          <span
+            onClick={() => setSearchModal(true)}
+            className="flex sm:hidden text-3xl text-gray-300 cursor-pointer"
+          >
+            <CiSearch />
+          </span>
           <Link
             className="hidden md:flex items-center gap-1 text-gray-500"
             to="/write"
@@ -47,8 +57,16 @@ const HomeHeader = () => {
             <span className="text-gray-500 cursor-pointer">
               <MdKeyboardArrowDown />
             </span>
-            <Modal modal={modal} setModal={setModal} hidden={modal ? "" : "hidden"}>
-              <div className={`${modal ? "visible opacity-100%" : "invisible opacity-0"} transition-all duration-100`}>
+            <Modal
+              modal={modal}
+              setModal={setModal}
+              hidden={modal ? "" : "hidden"}
+            >
+              <div
+                className={`${
+                  modal ? "visible opacity-100" : "invisible opacity-0"
+                } transition-all duration-100`}
+              >
                 <UserModal />
               </div>
             </Modal>
