@@ -1,14 +1,15 @@
-import React from "react";
-
 const Modal = ({ children, modal, setModal, hidden }) => {
   return (
     <>
       <div
         onClick={() => setModal(false)}
-        className={`bg-white/50 fixed inset-0 z-10
-    ${hidden} transition-all duration-400`}
+        className={`bg-black fixed inset-0 z-10 ${hidden} ${
+          modal ? "opacity-50" : "opacity-0"
+        } transition-opacity duration-400`}
       />
-      {children}
+      <div className={`${hidden} transition-all duration-400`}>
+        {children}
+      </div>
     </>
   );
 };

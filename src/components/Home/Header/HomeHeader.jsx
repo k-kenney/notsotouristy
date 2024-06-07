@@ -50,7 +50,7 @@ const HomeHeader = () => {
           <div className="flex item-center relative">
             <img
               onClick={() => setModal(true)}
-              className="w-[2.3rem] hr-[2.3rem] object-cover rounded-full cursor-pointer"
+              className="w-[2.3rem] hr-[2.3rem] object-cover rounded-full cursor-pointer z-50"
               src="/blank-profile.png"
               alt="profile image"
             />
