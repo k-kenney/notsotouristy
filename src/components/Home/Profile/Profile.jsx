@@ -39,8 +39,7 @@ const Profile = () => {
             <div
               key={i}
               className={`py-[0.5rem] z-30
-            ${
-              item.title === currentActive.title
+            ${item.title === currentActive.title
                 ? "border-b border-gray-500"
                 : ""
             } `}
@@ -54,21 +53,35 @@ const Profile = () => {
         <currentActive.comp />
       </div>
       {/* user details */}
-      <Modal modal={modal} setModal={setModal}>
-        <div
+      {/* <Modal modal={modal} setModal={setModal}> */}
+        {/* <div
           className={`flex-[1] border-l border-gray-300 p-[2rem] z-10 fixed right-0 bottom-0 top-0 w-[18rem] bg-white md:relative ${
             modal ? "translate-x-0" : "translate-x-[100%] md:translate-x-0"
           } transition-all duration-500`}
-        >
+        > */}
           {/* icon to close modal */}
-          <div className="pb-4 text-right ">
-            <button
+          {/* <div className="pb-4 text-right "> */}
+            {/* <button
               onClick={() => setModal(false)}
               className="inline-block md:hidden"
-            >
-              <LiaTimesSolid />
-            </button>
+            > */}
+              {/* <LiaTimesSolid /> */}
+            {/* </button>
           </div>
+        </div>
+      </Modal> */}
+
+      <Modal modal={modal} setModal={setModal}>
+      <div className={`flex-[1] border-l border-gray-300 p-[2rem] z-10
+        fixed right-0 bottom-0 top-0 w-[18rem] bg-white md:sticky
+        ${modal ? "translate-x-0" : "translate-x-[100%] md:translate-x-0"}
+        transition-all duration-500`}>
+            {/* icons to close modal */}
+            <div className="pb-4 text-right">
+                <button className="inline-block md:hidden">
+                    <LiaTimesSolid />
+                </button>
+            </div>
         </div>
       </Modal>
     </section>
