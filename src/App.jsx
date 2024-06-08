@@ -6,6 +6,7 @@ import DemoHeader from "./components/Demo/DemoHeader";
 // import { FaGalacticSenate } from "react-icons/fa6";
 import { Blog } from "./Context/Context";
 import { ToastContainer } from "react-toastify";
+import Profile from "./components/Home/Profile";
 
 function App() {
   const {currentUser} = Blog();
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         {currentUser && <Route path="/" element={<Home />} />}
         {!currentUser && <Route path="/demo" element={<Demo />} />}
+        <Route path="/profile/:userId" element={<Profile />} />
         {/* route protection */}
         <Route
           path="*"

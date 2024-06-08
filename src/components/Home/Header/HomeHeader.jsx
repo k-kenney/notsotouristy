@@ -23,10 +23,7 @@ const HomeHeader = () => {
               <BsMedium />
             </span>
           </Link>
-          <Search
-            modal={searchModal}
-            setModal={setSearchModal}
-          />
+          <Search modal={searchModal} setModal={setSearchModal} />
         </div>
         <div className="flex items-center gap-3 sm:gap-7">
           <span
@@ -67,7 +64,7 @@ const HomeHeader = () => {
                   modal ? "visible opacity-100" : "invisible opacity-0"
                 } transition-all duration-100`}
               >
-                <UserModal />
+                <UserModal modal={modal} setModal={setModal} />
               </div>
             </Modal>
           </div>
