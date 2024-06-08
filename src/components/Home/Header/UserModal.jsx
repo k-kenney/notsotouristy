@@ -33,7 +33,7 @@ const UserModal = (setModal) => {
     },
   ];
   return (
-    <section className="absolute w-[18rem] p-6 bg-white right-0 top-[100%] shadows rounded-md z-50 text-gray-500">
+    <section className="absolute w-[18rem] p-6 bg-white right-0 top-[100%] shadows z-50 rounded-md text-gray-500">
       <Link
         className="flex md:hidden items-center gap-1 text-gray-500"
         to="/write"

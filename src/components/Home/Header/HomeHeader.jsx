@@ -16,7 +16,6 @@ const HomeHeader = () => {
     <header className="border-b border-gray-200">
       <div className="size h-[60px] flex items-center justify-between">
         {/* left side */}
-        <div></div>
         <div className="flex items-center gap-3">
           <Link to={"/"}>
             <span className="text-5xl">
@@ -47,7 +46,7 @@ const HomeHeader = () => {
           <div className="flex item-center relative">
             <img
               onClick={() => setModal(true)}
-              className="w-[2.3rem] hr-[2.3rem] object-cover rounded-full cursor-pointer z-50"
+              className="w-[2.3rem] hr-[2.3rem] object-cover rounded-full cursor-pointer"
               src="/blank-profile.png"
               alt="profile image"
             />
@@ -57,7 +56,7 @@ const HomeHeader = () => {
             <Modal
               modal={modal}
               setModal={setModal}
-              hidden={modal ? "" : "hidden"}
+              // hidden={modal ? "" : "hidden"}
             >
               <div
                 className={`${
