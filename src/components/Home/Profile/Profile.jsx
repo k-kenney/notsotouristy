@@ -6,6 +6,7 @@ import Modal from "../../../utils/Modal";
 import { LiaTimesSolid } from "react-icons/lia";
 import { IoSettingsSharp } from "react-icons/io5";
 import { discoverActions } from "../../../data";
+import EditProfile from "./EditProfile";
 
 const Profile = () => {
   const activities = [
@@ -25,6 +26,8 @@ const Profile = () => {
 
   const [currentActive, setCurrentActive] = useState(activities[0]);
   const [modal, setModal] = useState(false);
+  const [editModal, setEditModal] = useState(true);
+
   return (
     <section className="size flex gap-[4rem] relative">
       {/* user activities */}
@@ -56,9 +59,10 @@ const Profile = () => {
         <currentActive.comp />
       </div>
       {/* button to open sidebar */}
-      <button 
-      onClick={() => setModal(true)}
-      className="fixed top-[8rem] right-0 w-[2rem] h-[2rem] bg-black text-white grid place-items-center md:hidden">
+      <button
+        onClick={() => setModal(true)}
+        className="fixed top-[8rem] right-0 w-[2rem] h-[2rem] bg-black text-white grid place-items-center md:hidden"
+      >
         <IoSettingsSharp />
       </button>
       {/* user details */}
@@ -89,7 +93,9 @@ const Profile = () => {
             <p className="text-gray-500 first-letter:uppercase text-sm">
               I am a content creator
             </p>
-            <button className="text-green-700 pt-6 text-sm w-fit">
+            <button 
+            onClick={() => setEditModal(true)}
+            className="text-green-700 pt-6 text-sm w-fit">
               Edit Profile
             </button>
             {/* nav */}
@@ -103,6 +109,9 @@ const Profile = () => {
           </div>
         </div>
       </Modal>
+      {editModal && (
+        <EditProfile editModal={editModal} setEditModal={setEditModal} />
+      )}
     </section>
   );
 };
