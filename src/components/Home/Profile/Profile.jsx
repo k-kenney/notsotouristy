@@ -4,6 +4,7 @@ import ProfileLists from "../Activities/ProfileLists";
 import ProfileAbout from "../Activities/ProfileAbout";
 import Modal from "../../../utils/Modal";
 import { LiaTimesSolid } from "react-icons/lia";
+import { IoSettingsSharp } from "react-icons/io5";
 import { discoverActions } from "../../../data";
 
 const Profile = () => {
@@ -23,7 +24,7 @@ const Profile = () => {
   ];
 
   const [currentActive, setCurrentActive] = useState(activities[0]);
-  const [modal, setModal] = useState(true);
+  const [modal, setModal] = useState(false);
   return (
     <section className="size flex gap-[4rem] relative">
       {/* user activities */}
@@ -54,25 +55,13 @@ const Profile = () => {
         </div>
         <currentActive.comp />
       </div>
+      {/* button to open sidebar */}
+      <button 
+      onClick={() => setModal(true)}
+      className="fixed top-[8rem] right-0 w-[2rem] h-[2rem] bg-black text-white grid place-items-center md:hidden">
+        <IoSettingsSharp />
+      </button>
       {/* user details */}
-      {/* <Modal modal={modal} setModal={setModal}> */}
-      {/* <div
-          className={`flex-[1] border-l border-gray-300 p-[2rem] z-10 fixed right-0 bottom-0 top-0 w-[18rem] bg-white md:relative ${
-            modal ? "translate-x-0" : "translate-x-[100%] md:translate-x-0"
-          } transition-all duration-500`}
-        > */}
-      {/* icon to close modal */}
-      {/* <div className="pb-4 text-right "> */}
-      {/* <button
-              onClick={() => setModal(false)}
-              className="inline-block md:hidden"
-            > */}
-      {/* <LiaTimesSolid /> */}
-      {/* </button>
-          </div>
-        </div>
-      </Modal> */}
-
       <Modal modal={modal} setModal={setModal}>
         <div
           className={`flex-[1] border-l border-gray-300 p-[2rem] z-10
@@ -91,15 +80,25 @@ const Profile = () => {
           </div>
           {/* profile details */}
           <div className="sticky top-7 flex flex-col justify-between">
-            <img className="w-[3.5rem] h-[3.5rem] object-cover rounded-full" src="/blank-profile.png" alt="blank profile" />
+            <img
+              className="w-[3.5rem] h-[3.5rem] object-cover rounded-full"
+              src="/blank-profile.png"
+              alt="blank profile"
+            />
             <h2 className="py-2 font-bold capitalize">Kayla Kenney</h2>
-            <p className="text-gray-500 first-letter:uppercase text-sm">I am a content creator</p>
-            <button className="text-green-700 pt-6 text-sm w-fit">Edit Profile</button>
+            <p className="text-gray-500 first-letter:uppercase text-sm">
+              I am a content creator
+            </p>
+            <button className="text-green-700 pt-6 text-sm w-fit">
+              Edit Profile
+            </button>
             {/* nav */}
             <div className="flex-[1] flex items-center flex-wrap gap-3 pt-8">
-                {discoverActions.map((item) => (
-                    <button key="item" className="text-xs text-black1">{item}</button>
-                ))}
+              {discoverActions.map((item) => (
+                <button key="item" className="text-xs text-black1">
+                  {item}
+                </button>
+              ))}
             </div>
           </div>
         </div>
