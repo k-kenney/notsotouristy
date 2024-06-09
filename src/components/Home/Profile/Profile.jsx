@@ -4,6 +4,7 @@ import ProfileLists from "../Activities/ProfileLists";
 import ProfileAbout from "../Activities/ProfileAbout";
 import Modal from "../../../utils/Modal";
 import { LiaTimesSolid } from "react-icons/lia";
+import { discoverActions } from "../../../data";
 
 const Profile = () => {
   const activities = [
@@ -39,7 +40,8 @@ const Profile = () => {
             <div
               key={i}
               className={`py-[0.5rem] z-30
-            ${item.title === currentActive.title
+            ${
+              item.title === currentActive.title
                 ? "border-b border-gray-500"
                 : ""
             } `}
@@ -54,34 +56,52 @@ const Profile = () => {
       </div>
       {/* user details */}
       {/* <Modal modal={modal} setModal={setModal}> */}
-        {/* <div
+      {/* <div
           className={`flex-[1] border-l border-gray-300 p-[2rem] z-10 fixed right-0 bottom-0 top-0 w-[18rem] bg-white md:relative ${
             modal ? "translate-x-0" : "translate-x-[100%] md:translate-x-0"
           } transition-all duration-500`}
         > */}
-          {/* icon to close modal */}
-          {/* <div className="pb-4 text-right "> */}
-            {/* <button
+      {/* icon to close modal */}
+      {/* <div className="pb-4 text-right "> */}
+      {/* <button
               onClick={() => setModal(false)}
               className="inline-block md:hidden"
             > */}
-              {/* <LiaTimesSolid /> */}
-            {/* </button>
+      {/* <LiaTimesSolid /> */}
+      {/* </button>
           </div>
         </div>
       </Modal> */}
 
       <Modal modal={modal} setModal={setModal}>
-      <div className={`flex-[1] border-l border-gray-300 p-[2rem] z-10
+        <div
+          className={`flex-[1] border-l border-gray-300 p-[2rem] z-10
         fixed right-0 bottom-0 top-0 w-[18rem] bg-white md:sticky
         ${modal ? "translate-x-0" : "translate-x-[100%] md:translate-x-0"}
-        transition-all duration-500`}>
-            {/* icons to close modal */}
-            <div className="pb-4 text-right">
-                <button className="inline-block md:hidden">
-                    <LiaTimesSolid />
-                </button>
+        transition-all duration-500`}
+        >
+          {/* icons to close modal */}
+          <div className="pb-4 text-right">
+            <button
+              onClick={() => setModal(false)}
+              className="inline-block md:hidden"
+            >
+              <LiaTimesSolid />
+            </button>
+          </div>
+          {/* profile details */}
+          <div className="sticky top-7 flex flex-col justify-between">
+            <img className="w-[3.5rem] h-[3.5rem] object-cover rounded-full" src="/blank-profile.png" alt="blank profile" />
+            <h2 className="py-2 font-bold capitalize">Kayla Kenney</h2>
+            <p className="text-gray-500 first-letter:uppercase text-sm">I am a content creator</p>
+            <button className="text-green-700 pt-6 text-sm w-fit">Edit Profile</button>
+            {/* nav */}
+            <div className="flex-[1] flex items-center flex-wrap gap-3 pt-8">
+                {discoverActions.map((item) => (
+                    <button key="item" className="text-xs text-black1">{item}</button>
+                ))}
             </div>
+          </div>
         </div>
       </Modal>
     </section>

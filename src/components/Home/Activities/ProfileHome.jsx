@@ -1,9 +1,73 @@
-import React from 'react'
+import React from "react";
 
 const ProfileHome = () => {
   return (
-    <div>ProfileHome</div>
-  )
-}
+    <>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+      <h1>ProfileHome</h1>
+    </>
+  );
+};
 
-export default ProfileHome
+export default ProfileHome;
