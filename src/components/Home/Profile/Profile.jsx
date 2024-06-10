@@ -7,8 +7,12 @@ import { LiaTimesSolid } from "react-icons/lia";
 import { IoSettingsSharp } from "react-icons/io5";
 import { discoverActions } from "../../../data";
 import EditProfile from "./EditProfile";
+import { Blog } from "../../../Context/Context";
+import { useParams } from "react-router-dom";
 
 const Profile = () => {
+  const { allUsers } = Blog();
+  const { userId } = useParams();
   const activities = [
     {
       title: "Home",
@@ -28,13 +32,15 @@ const Profile = () => {
   const [modal, setModal] = useState(false);
   const [editModal, setEditModal] = useState(false);
 
+  const getUserData = allUsers.find((user) => user.id === userId);
+
   return (
     <section className="size flex gap-[4rem] relative">
       {/* user activities */}
       <div className="mt-[9rem] flex-[2]">
         <div className="flex items-end gap-4">
           <h2 className="text-3xl sm:text-5xl font-bold capitalize">
-            Kayla Kenney
+            {getUserData?.username}
           </h2>
           <p className="text-gray-500 text-xs sm:text-sm">Followers(2)</p>
           <p className="text-gray-500 text-xs sm:text-sm">Following(2)</p>
@@ -56,7 +62,10 @@ const Profile = () => {
             </div>
           ))}
         </div>
-        <currentActive.comp />
+        <currentActive.comp
+          getUserData={getUserData}
+          setEditModal={setEditModal}
+        />
       </div>
       {/* button to open sidebar */}
       <button
@@ -86,22 +95,23 @@ const Profile = () => {
           <div className="sticky top-7 flex flex-col justify-between">
             <img
               className="w-[3.5rem] h-[3.5rem] object-cover rounded-full"
-              src="/blank-profile.png"
+              src={getUserData?.userImg || "/blank-profile.png"}
               alt="blank profile"
             />
             <h2 className="py-2 font-bold capitalize">Kayla Kenney</h2>
             <p className="text-gray-500 first-letter:uppercase text-sm">
               I am a content creator
             </p>
-            <button 
-            onClick={() => setEditModal(true)}
-            className="text-green-700 pt-6 text-sm w-fit">
+            <button
+              onClick={() => setEditModal(true)}
+              className="text-green-700 pt-6 text-sm w-fit"
+            >
               Edit Profile
             </button>
             {/* nav */}
             <div className="flex-[1] flex items-center flex-wrap gap-3 pt-8">
               {discoverActions.map((item) => (
-                <button key="item" className="text-xs text-black1">
+                <button key={item} className="text-xs text-black1">
                   {item}
                 </button>
               ))}
@@ -110,7 +120,11 @@ const Profile = () => {
         </div>
       </Modal>
       {editModal && (
-        <EditProfile editModal={editModal} setEditModal={setEditModal} />
+        <EditProfile
+          getUserData={getUserData}
+          editModal={editModal}
+          setEditModal={setEditModal}
+        />
       )}
     </section>
   );

@@ -9,7 +9,7 @@ import { ToastContainer } from "react-toastify";
 import Profile from "./components/Home/Profile/Profile";
 
 function App() {
-  const {currentUser} = Blog();
+  const { currentUser } = Blog();
   return (
     <>
       {currentUser ? <HomeHeader /> : <DemoHeader />}
