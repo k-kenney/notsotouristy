@@ -26,7 +26,7 @@ const Profile = () => {
 
   const [currentActive, setCurrentActive] = useState(activities[0]);
   const [modal, setModal] = useState(false);
-  const [editModal, setEditModal] = useState(true);
+  const [editModal, setEditModal] = useState(false);
 
   return (
     <section className="size flex gap-[4rem] relative">
